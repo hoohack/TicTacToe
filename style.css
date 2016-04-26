@@ -1,8 +1,8 @@
 /*
 * @Author: huhuaquan
 * @Date:   2016-04-20 10:18:12
-* @Last Modified by:   HectorHu
-* @Last Modified time: 2016-04-25 20:14:48
+* @Last Modified by:   huhuaquan
+* @Last Modified time: 2016-04-26 11:53:13
 */
 * {
 	margin: 0px;
@@ -71,12 +71,13 @@
 
 .choose-panel {
 	position: absolute;
-	top: 0%;
-	left: 30%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	width: 500px;
 	height: 200px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 	background-color: #FFF;
 	margin-top: 200px;
 	z-index: 1002;

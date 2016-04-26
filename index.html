@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+    	<div class="container">
+    		<div class="gameboard">
+    			<ul class="grid-list">
+    				<li class="grid grid-0"></li>
+    				<li class="grid grid-1"></li>
+    				<li class="grid grid-2"></li>
+    				<li class="grid grid-3"></li>
+    				<li class="grid grid-4"></li>
+    				<li class="grid grid-5"></li>
+    				<li class="grid grid-6"></li>
+    				<li class="grid grid-7"></li>
+    				<li class="grid grid-8"></li>
+    			</ul>
+    		</div>
+    	</div>
+
+    	<div class="bg">
+    	</div>
+    	<div class="choose-panel">
+            <div class="choose-player">
+    			<p>选择角色：X OR O?</p>
+    			<div class="choose-btn">
+    				<button class="btn btn-default xobtn" id="x-btn">X</button><button class="btn btn-default xobtn" id="o-btn">O</button>
+    			</div>
+            </div>
+            <div class="choose-first">
+                <p>设置先手：</p>
+                <div class="choose-btn">
+                    <button class="btn btn-default firstbtn" id="computer">电脑</button><button class="btn btn-default firstbtn" id="user">玩家</button>
+                </div>
+            </div>
+		</div>
+    <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="tictactoe.js"></script>
+    </body>
+</html>

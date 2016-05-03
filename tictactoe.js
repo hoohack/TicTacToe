@@ -1,8 +1,8 @@
 /*
 * @Author: huhuaquan
 * @Date:   2016-04-20 10:18:53
-* @Last Modified by:   HectorHu
-* @Last Modified time: 2016-04-25 21:27:33
+* @Last Modified by:   huhuaquan
+* @Last Modified time: 2016-05-03 15:30:05
 */
 $(function() {
 	var winResult = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]],
@@ -16,7 +16,8 @@ $(function() {
 		computerVal = 1,
 		userVal = -1,
 		panelSize = 3,
-		computerFirst;
+		computerFirst,
+		end = false;
 
 	var Tictactoe = function() {};
 
@@ -24,12 +25,12 @@ $(function() {
 		return className.split(' ')[1].split('-')[1];
 	}
 
-	function oneWin() {
+	function oneWin(val) {
 		for(var i = 0; i < winResult.length; i++) {
 			var tmpCount = 0;
 			for(var j = 0; j < winResult[i].length; j++) {
 				var pos = winResult[i][j];
-				if(parseInt(panel[getX(pos)][getY(pos)]) == computerVal) {
+				if(parseInt(panel[getX(pos)][getY(pos)]) == val) {
 					++tmpCount;
 				}
 			}
@@ -61,12 +62,14 @@ $(function() {
 		panel[x][y] = val;
 		$(".grid-" + pos).html(player);
 		updatePossibleWin(pos, val);
-		if(oneWin()) {
+		if(oneWin(val)) {
+			end = true;
 			var winner = (val == computerVal) ? "Computer" : "You";
 			if(confirm("Winner : " + winner + ".再来一局?")) {
 				return window.location.reload();
 			}
 		} else if(tied()) {
+			end = true;
 			if(confirm("平局.再来一局?")) {
 				return location.reload();
 			}
@@ -255,7 +258,8 @@ $(function() {
 	        $(".grid").click(function() {
 				$(this).html(userPlayer);
 				updatePanel(parseInt(getPosition($(this).attr('class'))), userVal);
-				self.play();
+				if(end === false)
+					self.play();
 			});
 		},
 		play: function() {
